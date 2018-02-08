@@ -3,13 +3,13 @@
 #include <ctime>
 #include <string>
 using namespace std;
-// Ќаписати рекурсивну функц≥ю дл€ обчисленн€ , де Ц дробове число, Ц ц≥ле число
-double mst(double num, int n) {
-	if (n > 1) return mst(num, n - 1)*num;
-	else return num;
+//  к≥лькост≥ цифр натурального числа
+int mst(int num) {
+	if (num > 0) return mst(num-1)+1;
+	else return 0;
 }
 void main() {
-	cout << mst(5.4, 3);
+	cout << mst(6);
 	cout << endl;
 	system("pause");
 }
