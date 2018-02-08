@@ -3,11 +3,13 @@
 #include <ctime>
 #include <string>
 using namespace std;
-// Написати рекурсивну функцію, яка отримує масив і знаходить кількість парних елементів
-long long sum_elsm(int mass[], int n) {
-	if (mass[n-1] % 2 == 0 && n > 0 && mass[n - 1] != 0) return (1 + sum_elsm(mass, n - 1));
-	else if(mass[n - 1] % 2 > 0 && n > 0) return (0 + sum_elsm(mass, n - 1));
-	else return 0;
+// Написати рекурсивну функцію для перетворення масиву: поміняти місцями перший елемент з другим, третій з четвертим, і т.д.
+void swep(int mass[], int n) {
+	n--;
+	if (n > 0){
+		swep(mass, n - 1);
+		swap(mass[n], mass[n - 1]);
+    }
 }
 void main() {
 	int mass[10];
@@ -18,7 +20,11 @@ void main() {
 		cout << " " << mass[i];
 	}
 	cout << endl;
-	cout << sum_elsm(mass, 10);
+	swep(mass, 10);
+	for (int i = 0; i < 10; i++)
+	{
+		cout << " " << mass[i];
+	}
 	cout << endl;
 	system("pause");
 }
