@@ -16,14 +16,14 @@ void swep(int mass[], int n) {
 		swap(mass[n], mass[n - 1]);
 	}
 }
-double step(double num, int n) {
-	if (n > 0) {
-		return num*step(num, n - 1);
-	}
-	else if (n < 0) {
-		return 1/(num*step(num, n - 1));
-	}
-	else return 1;
+double step(double num, int n)
+{
+	if (n == 0)
+		return 1;
+	else if (n < 0)
+		return 1 / step(num, -n);
+	else
+		return num * step(num, n - 1);
 }
 void Shistnad(long long n) {
 	if (n > 0) { Shistnad(n / 16); 
@@ -39,16 +39,11 @@ long long num_nums(long long n) {
 	if (n > 0) { return 1+num_nums(n / 10); }
 	else return 0;
 }
-int h(int num, int dil) {
-	/*if (dil < num) {
-		if (dil > 0) {
-
-		}
-	}*/
-}
 void main() {
 	// 1.
 	
+	/*cout << step(2, -2) << endl;*/
+
 	// 2.
 
 		//a)
